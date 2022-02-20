@@ -22,3 +22,10 @@ body {
 input::placeholder {
   color: #6a6a6a;
 }
+.input_user_setting {
+  background: white;
+  color: #6a6a6a;
+  &:focus {
+    background-color: white;
+  }
+}

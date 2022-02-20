@@ -16,29 +16,29 @@
   &.active:focus,
   &.active:hover {
     background-color: $white;
-    background-image: linear-gradient(
-      to bottom left,
-      $btn-color,
-      $btn-states-color,
-      $btn-color
-    ) !important;
-    background-image: -webkit-linear-gradient(
-      to bottom left,
-      $white,
-      $btn-states-color,
-      $btn-color
-    ) !important;
-    background-image: -o-linear-gradient(
-      to bottom left,
-      $white $btn-states-color,
-      $btn-color
-    ) !important;
-    background-image: -moz-linear-gradient(
-      to bottom left,
-      $white,
-      $btn-states-color,
-      $btn-color
-    ) !important;
+    // background-image: linear-gradient(
+    //   to bottom left,
+    //   $btn-color,
+    //   $btn-states-color,
+    //   $btn-color
+    // ) !important;
+    // background-image: -webkit-linear-gradient(
+    //   to bottom left,
+    //   $white,
+    //   $btn-states-color,
+    //   $btn-color
+    // ) !important;
+    // background-image: -o-linear-gradient(
+    //   to bottom left,
+    //   $white $btn-states-color,
+    //   $btn-color
+    // ) !important;
+    // background-image: -moz-linear-gradient(
+    //   to bottom left,
+    //   $white,
+    //   $btn-states-color,
+    //   $btn-color
+    // ) !important;
     color: $white;
     box-shadow: none;
   }
@@ -156,14 +156,14 @@
   }
 
   &.btn-simple {
-    color: $btn-color;
-    border-color: $btn-color;
-    background: #6a6a6a;
+    color: purple;
+    border-color: white;
+    background: white;
     &:hover,
     &:focus,
     &:active,
     &:not(:disabled):not(.disabled):active {
-      color: $purple;
+      color: purple;
       border-color: $white;
       background-color: $white;
     }

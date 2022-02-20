@@ -251,6 +251,7 @@ export default function Settings() {
                                 required="required"
                                 value={values.firstName}
                                 onChange={handleChange}
+                                className="input_user_setting"
                               />
                             </FormGroup>
                           </Col>
@@ -270,6 +271,7 @@ export default function Settings() {
                                 type="text"
                                 value={values.lastName}
                                 onChange={handleChange}
+                                className="input_user_setting"
                               />
                             </FormGroup>
                           </Col>
@@ -281,7 +283,7 @@ export default function Settings() {
                           <Col className="align-self-center" md="4">
                             <FormGroup>
                               <Select
-                                className="react-select react-select-info"
+                                className="input_user_setting react-select react-select-info"
                                 classNamePrefix="react-select"
                                 // placeholder={values.gender}
                                 name="gender"
@@ -309,7 +311,7 @@ export default function Settings() {
                               <Col className="align-self-center" md="4">
                                 <FormGroup>
                                   <Select
-                                    className="react-select react-select-info"
+                                    className="input_user_setting react-select react-select-info"
                                     classNamePrefix="react-select"
                                     name="month"
                                     value={month}
@@ -334,7 +336,7 @@ export default function Settings() {
                               <Col md="4">
                                 <FormGroup>
                                   <Select
-                                    className="react-select react-select-info"
+                                    className=" input_user_setting react-select react-select-info"
                                     classNamePrefix="react-select"
                                     name="day"
                                     value={day}
@@ -378,7 +380,7 @@ export default function Settings() {
                               <Col md="4">
                                 <FormGroup>
                                   <Select
-                                    className="react-select react-select-info"
+                                    className="input_user_setting react-select react-select-info"
                                     classNamePrefix="react-select"
                                     value={year}
                                     options={[
@@ -440,6 +442,7 @@ export default function Settings() {
                                 type="email"
                                 onChange={handleChange}
                                 disabled
+                                className="input_user_setting"
                               />
                             </FormGroup>
                           </Col>
@@ -460,6 +463,7 @@ export default function Settings() {
                                 type="text"
                                 value={values.adress}
                                 onChange={handleChange}
+                                className="input_user_setting"
                               />
                             </FormGroup>
                           </Col>
@@ -479,6 +483,7 @@ export default function Settings() {
                                 type="text"
                                 value={values.country}
                                 onChange={handleChange}
+                                className="input_user_setting"
                               />
                             </FormGroup>
                           </Col>
@@ -498,6 +503,7 @@ export default function Settings() {
                                 type="text"
                                 value={values.city}
                                 onChange={handleChange}
+                                className="input_user_setting"
                               />
                             </FormGroup>
                           </Col>
@@ -517,6 +523,7 @@ export default function Settings() {
                                 type="number"
                                 value={values.zipCode}
                                 onChange={handleChange}
+                                className="input_user_setting"
                               />
                             </FormGroup>
                           </Col>
@@ -537,6 +544,7 @@ export default function Settings() {
                                 type="tel"
                                 value={values.phoneNumber}
                                 onChange={handleChange}
+                                className="input_user_setting"
                               />
                             </FormGroup>
                           </Col>
@@ -548,7 +556,7 @@ export default function Settings() {
                           <Col className="align-self-center" md="4">
                             <FormGroup>
                               <Select
-                                className="react-select react-select-info"
+                                className="react-select react-select-info input_user_setting"
                                 classNamePrefix="react-select"
                                 options={[
                                   { value: "English", label: "English" },
@@ -580,6 +588,7 @@ export default function Settings() {
                                 type="text"
                                 value={values.job}
                                 onChange={handleChange}
+                                className="input_user_setting"
                               />
                             </FormGroup>
                           </Col>
@@ -597,6 +606,7 @@ export default function Settings() {
                                 type="number"
                                 value={values.hourly_rate}
                                 onChange={handleChange}
+                                className="input_user_setting"
                               />{" "}
                             </FormGroup>
                           </Col>
@@ -617,6 +627,7 @@ export default function Settings() {
                                 type="textarea"
                                 value={values.description}
                                 onChange={handleChange}
+                                className="input_user_setting"
                               />
                             </FormGroup>
                           </Col>
@@ -1013,8 +1024,8 @@ export default function Settings() {
             </Row>
           </Container>
         </div>
-        <DemoFooter />
       </div>
+      <DemoFooter />
     </>
   );
 }

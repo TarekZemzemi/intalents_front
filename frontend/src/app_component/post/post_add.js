@@ -224,7 +224,7 @@ export default function PostAdd() {
               className="mt-3"
               onClick={addPostHandler}
             >
-              Add Job
+              Done
             </Button>
           </CardBody>
         </Card>
