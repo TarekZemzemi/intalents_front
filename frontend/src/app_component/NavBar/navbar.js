@@ -37,7 +37,10 @@ export default function NavBar() {
             <img
               alt="..."
               className="img rounded"
-              src={require("assets/img/Intalents Logo-03.png").default}
+              src={
+                require("assets/img/logo_intalents/Intalents Logo-01.png")
+                  .default
+              }
               height="150px"
               width="200px"
             />

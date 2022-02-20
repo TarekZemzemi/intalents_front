@@ -15,16 +15,16 @@
 
  */
 
- @import "blk-design-system-pro/custom/functions";
- @import "~bootstrap/scss/functions";
+@import "blk-design-system-pro/custom/functions";
+@import "~bootstrap/scss/functions";
 
- @import "blk-design-system-pro/variables";
- @import "~bootstrap/scss/variables";
+@import "blk-design-system-pro/variables";
+@import "~bootstrap/scss/variables";
 
- @import "blk-design-system-pro/custom/mixins";
- @import "~bootstrap/scss/mixins";
+@import "blk-design-system-pro/custom/mixins";
+@import "~bootstrap/scss/mixins";
 
- // Bootstrap components
+// Bootstrap components
 
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
@@ -87,7 +87,6 @@
 @import "blk-design-system-pro/footers.scss";
 @import "blk-design-system-pro/tables.scss";
 
-
 // Pro components
 
 @import "blk-design-system-pro/example-pages.scss";
@@ -99,15 +98,10 @@
 @import "blk-design-system-pro/pills-extend.scss";
 @import "blk-design-system-pro/dropdown-extend.scss";
 
-
-
-
 // Sections
 @import "blk-design-system-pro/custom/sections.scss";
 
-
-
- // Vendor / Plugins
+// Vendor / Plugins
 
 @import "blk-design-system-pro/custom/vendor/plugin-perfect-scrollbar.scss";
 @import "blk-design-system-pro/custom/vendor/plugin-animate-bootstrap-notify.scss";
@@ -119,11 +113,9 @@
 @import "blk-design-system-pro/plugins/plugin-jasny-fileupload.scss";
 @import "blk-design-system-pro/plugins/plugin-carousel-slick.scss";
 
-
-
 // Cards
 
-@import 'blk-design-system-pro/custom/card';
+@import "blk-design-system-pro/custom/card";
 @import "blk-design-system-pro/custom/cards/card-chart";
 @import "blk-design-system-pro/custom/cards/card-map";
 @import "blk-design-system-pro/custom/cards/card-user";
@@ -140,17 +132,16 @@
 @import "blk-design-system-pro/cards/card-testimonials";
 @import "blk-design-system-pro/cards/card-product";
 
-
 // Avatars
 
 @import "blk-design-system-pro/avatars/avatar-group";
 @import "blk-design-system-pro/avatars/avatar";
 
-
 // Responsive
 
 @import "blk-design-system-pro/responsive";
 
-
 // React Differences
 @import "blk-design-system-pro/react/react-differences";
+
+@import "blk-design-system-pro/custom/intalents";

@@ -23,30 +23,21 @@
 }
 
 @mixin diagonal-gradient($start-color, $end-color) {
-  background: $start-color;
+  background: purple;
   background-image: -webkit-linear-gradient(
     to bottom left,
-    $start-color,
-    $end-color,
-    $start-color
+    purple,
+    purple,
+    purple
   );
-  background-image: -o-linear-gradient(
-    to bottom left,
-    $start-color,
-    $end-color,
-    $start-color
-  );
+  background-image: -o-linear-gradient(to bottom left, purple, purple, purple);
   background-image: -moz-linear-gradient(
     to bottom left,
-    $start-color,
-    $end-color,
-    $start-color
+    purple,
+    purple,
+    purple
   );
-  background-image: linear-gradient(
-    to bottom left,
-    $start-color,
-    #36164a $start-color
-  );
+  background-image: linear-gradient(to bottom left, purple, purple, purple);
   background-size: 210% 210%;
   background-position: top right;
 }

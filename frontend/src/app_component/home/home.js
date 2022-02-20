@@ -67,9 +67,7 @@ export default function Home() {
             <Col>
               <Row>
                 <Col className="mr-0" md="4">
-                  <h2 className="title" className="pr-2 mr-2">
-                    Latest Job Offer
-                  </h2>
+                  <h2 className="pr-2 mr-2">Events</h2>
                 </Col>
                 <Col md="4">
                   <FormGroup>
@@ -223,7 +221,7 @@ export default function Home() {
                                       </a>
                                     </p>
                                     <div className="text">
-                                      <h5 className="category text-primary">
+                                      <h5 className="language-title">
                                         Required language :{" "}
                                         <strong>{p.Post.language}</strong>
                                       </h5>
@@ -244,7 +242,7 @@ export default function Home() {
                                           alt="..."
                                           className="img rounded"
                                           src={
-                                            require("assets/img/serge-kutuzov.jpg")
+                                            require("assets/img/model.jpg")
                                               .default
                                           }
                                         />
@@ -324,7 +322,7 @@ export default function Home() {
                                       </a>
                                     </p>
                                     <div className="text">
-                                      <h5 className="category text-primary">
+                                      <h5 className="language-title">
                                         Required language :{" "}
                                         <strong>{p.Post.language}</strong>
                                       </h5>
@@ -341,7 +339,7 @@ export default function Home() {
                                         alt="..."
                                         className="img rounded"
                                         src={
-                                          require("assets/img/serge-kutuzov.jpg")
+                                          require("assets/img/model.jpg")
                                             .default
                                         }
                                       />
@@ -404,7 +402,7 @@ export default function Home() {
                                       </a>
                                     </p>
                                     <div className="text">
-                                      <h5 className="category text-primary">
+                                      <h5 className="language-title">
                                         Required language :{" "}
                                         <strong>{p.Post.language}</strong>
                                       </h5>
@@ -421,7 +419,7 @@ export default function Home() {
                                         alt="..."
                                         className="img rounded"
                                         src={
-                                          require("assets/img/serge-kutuzov.jpg")
+                                          require("assets/img/model.jpg")
                                             .default
                                         }
                                       />
@@ -484,7 +482,7 @@ export default function Home() {
                                       </a>
                                     </p>
                                     <div className="text">
-                                      <h5 className="category text-primary">
+                                      <h5 className="language-title">
                                         Required language :{" "}
                                         <strong>{p.Post.language}</strong>
                                       </h5>
@@ -501,7 +499,7 @@ export default function Home() {
                                         alt="..."
                                         className="img rounded"
                                         src={
-                                          require("assets/img/serge-kutuzov.jpg")
+                                          require("assets/img/model.jpg")
                                             .default
                                         }
                                       />
@@ -564,7 +562,7 @@ export default function Home() {
                                       </a>
                                     </p>
                                     <div className="text">
-                                      <h5 className="category text-primary">
+                                      <h5 className="language-title">
                                         Required language :{" "}
                                         <strong>{p.Post.language}</strong>
                                       </h5>
@@ -581,7 +579,7 @@ export default function Home() {
                                         alt="..."
                                         className="img rounded"
                                         src={
-                                          require("assets/img/serge-kutuzov.jpg")
+                                          require("assets/img/model.jpg")
                                             .default
                                         }
                                       />
@@ -649,7 +647,7 @@ export default function Home() {
                                       </a>
                                     </p>
                                     <div className="text">
-                                      <h5 className="category text-primary">
+                                      <h5 className="language-title">
                                         Required language :{" "}
                                         <strong>{p.Post.language}</strong>
                                       </h5>
@@ -666,7 +664,7 @@ export default function Home() {
                                         alt="..."
                                         className="img rounded"
                                         src={
-                                          require("assets/img/serge-kutuzov.jpg")
+                                          require("assets/img/model.jpg")
                                             .default
                                         }
                                       />

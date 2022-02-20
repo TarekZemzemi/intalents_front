@@ -8,7 +8,6 @@
   padding: $padding-btn-vertical $padding-btn-horizontal-md;
   border-radius: $border-radius-lg;
   cursor: pointer;
-
   @include btn-styles($default, $default-states);
 
   &:hover,

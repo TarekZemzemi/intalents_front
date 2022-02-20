@@ -1,6 +1,4 @@
 .card {
-  background: $card-black-background;
-  border: 0;
   position: relative;
   width: 100%;
   box-shadow: $box-shadow;
@@ -8,7 +6,7 @@
   margin-top: 30px;
 
   label {
-    color: rgba($white, 0.6);
+    color: #6a6a6a;
   }
 
   .card-title {
@@ -18,7 +16,9 @@
 
   .card-body {
     padding: 15px;
-
+    background: white;
+    overflow: hidden;
+    border-radius: 5%;
     &.table-full-width {
       padding-left: 0;
       padding-right: 0;
@@ -35,7 +35,7 @@
 
     .card-description,
     .card-category {
-      color: rgba($white, 0.6);
+      color: #6a6a6a;
     }
   }
   .category,

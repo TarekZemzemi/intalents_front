@@ -114,9 +114,9 @@ export default function PostAdd() {
         <Card className="mb-4">
           <CardBody>
             <FormGroup>
-              <h1>Job offer</h1>
+              <h1>Post event</h1>
               <Label for="exampleEmail" className="mt-3">
-                Job Title <label style={required}>*</label>
+                Event Title <label style={required}>*</label>
               </Label>
               <Input
                 type="text"
