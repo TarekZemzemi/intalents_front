@@ -451,7 +451,7 @@ export default function Settings() {
                         <Row>
                           <Col className="align-self-center" md="3">
                             <label className="labels" htmlFor="#location">
-                              Your adress
+                              Your address
                             </label>
                           </Col>
                           <Col className="align-self-center" md="9">
