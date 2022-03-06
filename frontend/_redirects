@@ -1,1 +1,4 @@
-/* /src/index.js 200
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200
