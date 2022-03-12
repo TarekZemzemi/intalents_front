@@ -2,10 +2,19 @@
   overflow: hidden;
   text-align: left;
   z-index: 2;
+  opacity: 0.5;
+  position: relative;
+  transform: translate(0%, 30%);
 
   .card-header {
     padding: 0 0 50px;
     overflow: hidden;
+    &-login {
+      padding: 0 0 50px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column-reverse;
+    }
     img {
       position: absolute;
       margin-left: -50px;

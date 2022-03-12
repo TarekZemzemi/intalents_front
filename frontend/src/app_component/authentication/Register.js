@@ -95,118 +95,142 @@ export default function Register() {
     <>
       {/* <Navbar /> */}
       <div className="register-box">
-        <div className="background-img">
-          <div className="page-header-image" />
+        <div className="page-header-image" />
+        <div className="background-login-image">
           <Container>
             <Row>
               <Col className="mx-auto" lg="5" md="12">
-                <Card className="card-register">
-                  <CardHeader>
-                    {/* <CardImg
-                      alt="..."
-                      src={require("assets/img/square1.png").default}
-                    /> */}
-                    <CardTitle tag="h4">Register</CardTitle>
-                  </CardHeader>
-                  <CardBody>
-                    <Form className="form">
-                      <InputGroup
-                        className={classnames({
-                          "input-group-focus": fullNameFocus,
-                        })}
-                      >
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="tim-icons icon-single-02" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input
-                          placeholder="username"
-                          type="text"
-                          onFocus={(e) => setFullNameFocus(true)}
-                          onBlur={(e) => setFullNameFocus(false)}
-                          onChange={hangleChange}
-                          value={values.username}
-                          name="username"
-                        />
-                      </InputGroup>
-                      {errors.username && (
-                        <p className="text-danger">{errors.username}</p>
-                      )}
-                      <p className="text-danger">{errorUsername}</p>
-                      <InputGroup
-                        className={classnames({
-                          "input-group-focus": emailFocus,
-                        })}
-                      >
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="tim-icons icon-email-85" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input
-                          placeholder="Email"
-                          type="text"
-                          onFocus={(e) => setEmailFocus(true)}
-                          onBlur={(e) => setEmailFocus(false)}
-                          onChange={hangleChange}
-                          value={values.email}
-                          name="email"
-                        />
-                      </InputGroup>
-                      {errors.email && (
-                        <p className="text-danger">{errors.email}</p>
-                      )}
-
-                      <p className="text-danger">{errorEmail}</p>
-
-                      <InputGroup
-                        className={classnames({
-                          "input-group-focus": passwordFocus,
-                        })}
-                      >
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="tim-icons icon-lock-circle" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input
-                          placeholder="Password"
-                          type="password"
-                          onFocus={(e) => setPasswordFocus(true)}
-                          onBlur={(e) => setPasswordFocus(false)}
-                          onChange={hangleChange}
-                          value={values.password}
-                          name="password"
-                        />
-                      </InputGroup>
-                      {errors.password && (
-                        <p className="text-danger">{errors.password}</p>
-                      )}
-
-                      <FormGroup check className="text-left">
-                        <Label check>
-                          <Input type="checkbox" />
-                          <span className="form-check-sign" />I agree to the{" "}
-                          <a href="#h" onClick={(e) => e.preventDefault()}>
-                            terms and conditions
-                          </a>
-                          .
-                        </Label>
-                      </FormGroup>
-                    </Form>
-                  </CardBody>
-                  <CardFooter>
-                    <Button
-                      className="btn-round"
-                      color="info"
-                      href="#"
-                      onClick={registerUserHAndler}
-                      size="lg"
+                <Card className="card-login">
+                  <Form action="" className="form" method="">
+                    <CardHeader
+                      className="card-header-login"
+                      style={{ padding: "0" }}
                     >
-                      Get Started
-                    </Button>
-                  </CardFooter>
+                      <div className="title-logo-login">
+                        <CardTitle tag="h2">Register</CardTitle>
+
+                        <img
+                          alt="..."
+                          className="img rounded"
+                          src={
+                            require("assets/img/logo_intalents/Logomark-01.png")
+                              .default
+                          }
+                          style={{
+                            height: "105px",
+                            width: "130px",
+                            margin: "0%",
+                            position: "relative",
+                            top: "-8px",
+                            left: "-29px",
+                          }}
+                        />
+                      </div>
+                    </CardHeader>
+                    <CardBody>
+                      <Form className="form">
+                        <InputGroup
+                          className={classnames({
+                            "input-group-focus": fullNameFocus,
+                          })}
+                        >
+                          <InputGroupAddon addonType="prepend">
+                            <InputGroupText>
+                              <i className="tim-icons icon-single-02" />
+                            </InputGroupText>
+                          </InputGroupAddon>
+                          <Input
+                            placeholder="username"
+                            type="text"
+                            onFocus={(e) => setFullNameFocus(true)}
+                            onBlur={(e) => setFullNameFocus(false)}
+                            onChange={hangleChange}
+                            value={values.username}
+                            name="username"
+                            className="place-holder-input"
+                          />
+                        </InputGroup>
+                        {errors.username && (
+                          <p className="text-danger">{errors.username}</p>
+                        )}
+                        <p className="text-danger">{errorUsername}</p>
+                        <InputGroup
+                          className={classnames({
+                            "input-group-focus": emailFocus,
+                          })}
+                        >
+                          <InputGroupAddon addonType="prepend">
+                            <InputGroupText>
+                              <i className="tim-icons icon-email-85" />
+                            </InputGroupText>
+                          </InputGroupAddon>
+                          <Input
+                            placeholder="Email"
+                            type="text"
+                            onFocus={(e) => setEmailFocus(true)}
+                            onBlur={(e) => setEmailFocus(false)}
+                            onChange={hangleChange}
+                            value={values.email}
+                            name="email"
+                            className="place-holder-input"
+                          />
+                        </InputGroup>
+                        {errors.email && (
+                          <p className="text-danger">{errors.email}</p>
+                        )}
+
+                        <p className="text-danger">{errorEmail}</p>
+
+                        <InputGroup
+                          className={classnames({
+                            "input-group-focus": passwordFocus,
+                          })}
+                        >
+                          <InputGroupAddon addonType="prepend">
+                            <InputGroupText>
+                              <i className="tim-icons icon-lock-circle" />
+                            </InputGroupText>
+                          </InputGroupAddon>
+                          <Input
+                            placeholder="Password"
+                            type="password"
+                            onFocus={(e) => setPasswordFocus(true)}
+                            onBlur={(e) => setPasswordFocus(false)}
+                            onChange={hangleChange}
+                            value={values.password}
+                            name="password"
+                            className="place-holder-input"
+                          />
+                        </InputGroup>
+                        {errors.password && (
+                          <p className="text-danger">{errors.password}</p>
+                        )}
+
+                        <FormGroup check className="text-left">
+                          <Label check>
+                            <Input type="checkbox" />
+                            <span className="form-check-sign" />I agree to the{" "}
+                            <a href="#h" onClick={(e) => e.preventDefault()}>
+                              terms and conditions
+                            </a>
+                            .
+                          </Label>
+                        </FormGroup>
+                      </Form>
+                    </CardBody>
+                    <CardFooter>
+                      <Button
+                        block
+                        className="btn-round"
+                        color="info"
+                        href="#"
+                        onClick={registerUserHAndler}
+                        size="lg"
+                      >
+                        Get Started
+                      </Button>
+                    </CardFooter>
+                  </Form>
                 </Card>
               </Col>
             </Row>

@@ -29,3 +29,35 @@ input::placeholder {
     background-color: white;
   }
 }
+
+.page-header-login {
+  .page-header {
+    display: flex;
+    align-items: center;
+    background-color: white;
+  }
+}
+
+.background-login-image {
+  background-image: url(../../../../assets/img/blach-white-Wallpaper-.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  z-index: 3;
+}
+.card-header-login {
+  .card-login .card-header {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+.title-logo-login {
+  display: flex;
+  flex-direction: row;
+}
+
+.place-holder-input::placeholder {
+  color: black;
+}
