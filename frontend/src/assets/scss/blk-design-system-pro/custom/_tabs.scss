@@ -15,10 +15,8 @@
   &.nav-tabs-primary {
     > .nav-item {
       > .nav-link {
-        &.active {
-          border-color: $primary;
-          color: $primary;
-        }
+        border-color: purple;
+        color: purple;
       }
     }
   }
@@ -60,8 +58,8 @@
     > .nav-item {
       > .nav-link {
         &.active {
-          border-color: $success;
-          color: $success;
+          border-color: purple;
+          color: purple;
         }
       }
     }

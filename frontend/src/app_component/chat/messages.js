@@ -147,7 +147,9 @@ export default function Message() {
       <div className="wrapper" ref={wrapper}>
         <div className="section mt-5">
           <Container>
-            <h2 className="title">Chat</h2>
+            <h2 className="title" style={{ color: "#6a6a6a" }}>
+              Chat
+            </h2>
             <Row className="flex-row">
               <Col lg="4">
                 <Card className="card-plain">
@@ -327,37 +329,47 @@ export default function Message() {
                   </CardHeader>
                   <CardBody>
                     {/* /****connected user messages */}
-                    {selectDiscussionMessages.map((message) => {
-                      return (
-                        <Row
-                          className={
-                            userinfo.id == message.sender_id
-                              ? "justify-content-end"
-                              : "justify-content-start text-right"
-                          }
-                          key={message.id}
-                        >
-                          <Col xs={{ size: "auto" }}>
-                            <Card
-                              className={
-                                userinfo.id == message.sender_id ? "" : ""
-                              }
-                            >
-                              <CardBody className="">
-                                <p className="mb-1">{message.content}</p>
-                                <div>
-                                  <small className="opacity-60">
-                                    <i className="far fa-clock" />{" "}
-                                    {message.created_time.substring(0, 10)} at{" "}
-                                    {message.created_time.substring(11, 16)}
-                                  </small>
-                                </div>
-                              </CardBody>
-                            </Card>
-                          </Col>
-                        </Row>
-                      );
-                    })}
+                    {selectDiscussionMessages.length == 0 ? (
+                      <div
+                        style={{
+                          height: "468px",
+                        }}
+                      >
+                        No message{" "}
+                      </div>
+                    ) : (
+                      selectDiscussionMessages.map((message) => {
+                        return (
+                          <Row
+                            className={
+                              userinfo.id == message.sender_id
+                                ? "justify-content-end"
+                                : "justify-content-start text-right"
+                            }
+                            key={message.id}
+                          >
+                            <Col xs={{ size: "auto" }}>
+                              <Card
+                                className={
+                                  userinfo.id == message.sender_id ? "" : ""
+                                }
+                              >
+                                <CardBody className="">
+                                  <p className="mb-1">{message.content}</p>
+                                  <div>
+                                    <small className="opacity-60">
+                                      <i className="far fa-clock" />{" "}
+                                      {message.created_time.substring(0, 10)} at{" "}
+                                      {message.created_time.substring(11, 16)}
+                                    </small>
+                                  </div>
+                                </CardBody>
+                              </Card>
+                            </Col>
+                          </Row>
+                        );
+                      })
+                    )}
                   </CardBody>
                   <CardFooter className="d-block">
                     <Form className="align-items-center">

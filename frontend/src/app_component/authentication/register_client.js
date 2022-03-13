@@ -49,9 +49,6 @@ export default function RegisterClient() {
   const [errors, setErrors] = React.useState("");
   const wrapper = React.useRef(null);
   React.useEffect(() => {
-    document.documentElement.scrollTop = 0;
-    document.scrollingElement.scrollTop = 0;
-    wrapper.current.scrollTop = 0;
     document.body.classList.add("register-page");
     return function cleanup() {
       document.body.classList.remove("register-page");
@@ -93,19 +90,37 @@ export default function RegisterClient() {
   return (
     <>
       {/* <Navbar /> */}
-      <div className="wrapper" ref={wrapper}>
-        <div className="page-header">
-          <div className="page-header-image" />
+      <div className="register-box">
+        <div className="page-header-image" />
+        <div className="background-login-image">
           <Container>
             <Row>
               <Col className="mx-auto" lg="5" md="12">
-                <Card className="card-register">
-                  <CardHeader>
-                    <CardImg
-                      alt="..."
-                      src={require("assets/img/square1.png").default}
-                    />
-                    <CardTitle tag="h4">Register</CardTitle>
+                <Card className="card-login">
+                  <CardHeader
+                    className="card-header-login"
+                    style={{ padding: "0" }}
+                  >
+                    <div className="title-logo-login">
+                      <CardTitle tag="h2">Register</CardTitle>
+
+                      <img
+                        alt="..."
+                        className="img rounded"
+                        src={
+                          require("assets/img/logo_intalents/Logomark-01.png")
+                            .default
+                        }
+                        style={{
+                          height: "105px",
+                          width: "130px",
+                          margin: "0%",
+                          position: "relative",
+                          top: "-8px",
+                          left: "-29px",
+                        }}
+                      />
+                    </div>
                   </CardHeader>
                   <CardBody>
                     <Form className="form">
@@ -197,6 +212,7 @@ export default function RegisterClient() {
                   </CardBody>
                   <CardFooter>
                     <Button
+                      block
                       className="btn-round"
                       color="info"
                       href="#"
@@ -211,8 +227,8 @@ export default function RegisterClient() {
             </Row>
           </Container>
         </div>
-        <DemoFooter />
       </div>
+      {/* <DemoFooter /> */}
     </>
   );
 }

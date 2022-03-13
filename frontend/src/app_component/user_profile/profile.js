@@ -61,17 +61,27 @@ export default function Profile() {
     <>
       <Navbar />
       <div className="wrapper" ref={wrapper}>
-        <div className="page-header">
+        <div className="page-header-profile">
           <Container className="align-items-center pt-5 mt-3">
             <Row>
-              <Col lg="6" md="6">
-                <h1 className="profile-title text-left">
-                  {userinfo.firstName} {userinfo.lastName}
-                </h1>
-                <h5 className="text-on-back">01</h5>
-                <p className="profile-description">{userinfo.description}</p>
-                <ImageUpload />
-              </Col>
+              {/* <Col lg="6" md="8">
+                <Row>
+                  <h1
+                    className="profile-title text-left"
+                    style={{ position: "relative", left: "6px" }}
+                  >
+                    {userinfo.firstName} {userinfo.lastName}
+                  </h1>
+                </Row>
+                <Row>
+                  {" "}
+                  <p className="profile-description">{userinfo.description}</p>
+                </Row>
+                <Row>
+                  {" "}
+                  <ImageUpload style={{ position: "absolute", top: "100px" }} />
+                </Row>
+              </Col> */}
 
               <Col className="ml-auto mr-auto" lg="5" md="6">
                 <Card className="card-coin card-plain">
@@ -91,9 +101,9 @@ export default function Profile() {
                     )}
 
                     <h4 className="title">
-                      {userinfo.firstName} <br />
-                      {userinfo.lastName}
+                      {userinfo.firstName} {userinfo.lastName}
                     </h4>
+                    <ImageUpload />
                   </CardHeader>{" "}
                   <CardBody>
                     <Nav

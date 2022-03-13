@@ -61,3 +61,13 @@ input::placeholder {
 .place-holder-input::placeholder {
   color: black;
 }
+
+.page-header-profile.page-header {
+  display: flex;
+  align-items: center;
+  background-color: red;
+}
+.description-section {
+  display: flex;
+  flex-direction: column;
+}
