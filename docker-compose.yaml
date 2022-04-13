@@ -1,0 +1,8 @@
+version: '3'
+services:
+  front-react-intalents:
+    build: ./frontend
+    image: tarek/react-intalents:v1
+    container_name: react-intalents
+    ports:
+      - "3000:3000"

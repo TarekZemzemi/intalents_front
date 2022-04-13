@@ -1,15 +1,46 @@
-FROM node:14.17.3-alpine3.11
+#FROM node:14.17.3-alpine3.11
+#
+#RUN mkdir /app && chown node:node /app
+#
+#USER node
+#
+#WORKDIR /app
+#
+#COPY --chown=node:node . .
+#
+#RUN npm ci && npm run build
+#
+#ENV PATH /app/node_modules/.bin:$PATH
+#
+#CMD ["npm","run","start"]
 
-RUN mkdir /app && chown node:node /app
+# The first image is for compiling the client files, the second is for serving.
 
-USER node
+#################################################################
+#################################################################
+#################################################################
+# BUILD IMAGE
+FROM node:12.19.0-alpine3.11 as build-stage
 
 WORKDIR /app
 
-COPY --chown=node:node . .
+# Install dependencies
+COPY package*.json ./
+RUN npm install
 
-RUN npm ci && npm run build 
+# Build
+COPY . .
+RUN npm run build
 
-ENV PATH /app/node_modules/.bin:$PATH
+# -----------------------------------------------------------------------------
+# SERVING IMAGE
+FROM fitiavana07/nginx-react
 
-CMD ["npm","run","start"]
+# Copy built files
+COPY --from=build-stage /app/build /usr/share/nginx/html
+
+# 80 for HTTP
+EXPOSE 80
+
+# Run nginx
+CMD nginx -g 'daemon off;'
