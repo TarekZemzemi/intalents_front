@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tarek-frontend-intalents
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tarek-frontend-intalents
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: tarek-frontend-intalents
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: tarek-frontend-intalents
+        image: acrintalents.azurecr.io/tarek/react-intalents:v1
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 0m
+            memory: 0Mi
+          limits:
+            cpu: 1000m
+            memory: 1024Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tarek-frontend-intalents
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: tarek-frontend-intalents
