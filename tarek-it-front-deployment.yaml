@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tarek-frontend-intalents
+  namespace: prd
 spec:
   replicas: 1
   selector:
@@ -18,7 +19,7 @@ spec:
         app: tarek-frontend-intalents
     spec:
       nodeSelector:
-        "beta.kubernetes.io/os": linux
+        "kubernetes.io/os": linux
       containers:
       - name: tarek-frontend-intalents
         image: acrintalents.azurecr.io/tarek/react-intalents:v1
@@ -36,6 +37,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tarek-frontend-intalents
+  namespace: prd
 spec:
   type: LoadBalancer
   ports:
