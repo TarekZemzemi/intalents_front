@@ -40,7 +40,7 @@ FROM fitiavana07/nginx-react
 COPY --from=build-stage /app/build /usr/share/nginx/html
 
 # copy custom nginx conf (fix for 405 error when posting to backend)
-COPY nginx-docker.conf /etc/nginx/nginx.conf
+COPY nginx-docker.conf /etc/nginx/conf.d/nginx-docker.conf
 
 # 80 for HTTP
 EXPOSE 80
