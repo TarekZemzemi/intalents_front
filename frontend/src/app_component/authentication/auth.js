@@ -21,12 +21,11 @@ class Auth {
   };
 
   isAuthenticated = () => {
-    const permissions = localStorage.getItem("permissions");
-    console.log(permissions);
+    const permissions = localStorage.getItem("token");
     if (!permissions) {
       return false;
     }
-    return permissions === "user" ? true : false;
+    else return true;
   };
 }
 

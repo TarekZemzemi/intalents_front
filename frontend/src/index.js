@@ -43,6 +43,7 @@ import CheckProfile from "../src/app_component/user_profile/checkProfile";
 import Message from "../src/app_component/chat/messages";
 import Talents from "../src/app_component/home/talents";
 import Welcome from "../src/app_component/home/welcome";
+import ProtectedRoutes from "./ProtectedRoutes"
 
 ReactDOM.render(
   <BrowserRouter>
@@ -75,7 +76,7 @@ ReactDOM.render(
       <Route path="/500-error" render={(props) => <Error500 {...props} />} />
       <Route
         path="/account-settings"
-        render={(props) => <AccountSettings {...props} />}
+        render={(props) => <ProtectedRoutes><AccountSettings {...props} /></ProtectedRoutes>}
       />
       <Route path="/login-page" render={(props) => <LoginPage {...props} />} />
       <Route
@@ -91,7 +92,7 @@ ReactDOM.render(
         path="/checkout-page"
         render={(props) => <CheckoutPage {...props} />}
       />
-      <Route path="/chat-page" render={(props) => <ChatPage {...props} />} />
+      <Route path="/chat-page" render={(props) => <ProtectedRoutes><ChatPage {...props} /></ProtectedRoutes>} />
       #----------------register and login -----------------------#
       <Route path="/register" render={(props) => <Register {...props} />} />
       <Route path="/login" render={(props) => <Login {...props} />} />
@@ -105,20 +106,20 @@ ReactDOM.render(
       />
       <Route
         path="/profile/:id"
-        render={(props) => <CheckProfile {...props} />}
+        render={(props) => <ProtectedRoutes><CheckProfile {...props} /></ProtectedRoutes>}
       />
       #-------post-route--------------------#
-      <Route path="/post_add" render={(props) => <PostAdd {...props} />} />
-      <Route path="/profile" render={(props) => <Profile {...props} />} />
+      <Route path="/post_add" render={(props) => <ProtectedRoutes><PostAdd {...props} /></ProtectedRoutes>} />
+      <Route path="/profile" render={(props) => <ProtectedRoutes> <Profile {...props} /></ProtectedRoutes> } />
       <Route
         path="/user-settings"
         render={(props) => <Settings {...props} />}
       />
       #-------chat route---------------#{" "}
-      <Route path="/messages" render={(props) => <Message {...props} />} />
+      <Route path="/messages" render={(props) => <ProtectedRoutes><Message {...props} /></ProtectedRoutes>} />
       #-------------Home route-----------------#
-      <Route path="/home" render={(props) => <Home {...props} />} />
-      <Route path="/talents" render={(props) => <Talents {...props} />} />
+      <Route path="/home" render={(props) => <ProtectedRoutes><Home {...props} /></ProtectedRoutes>} />
+      <Route path="/talents" render={(props) => <ProtectedRoutes><Talents {...props} /></ProtectedRoutes>} />
       <Route path="/welcome" render={(props) => <Welcome {...props} />} />
       <Redirect from="/" to="/welcome" />
     </Switch>
