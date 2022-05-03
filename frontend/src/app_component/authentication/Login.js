@@ -17,6 +17,7 @@ import {
   InputGroup,
   Container,
   Col,
+  Row
 } from "reactstrap";
 
 // core components
@@ -98,6 +99,7 @@ export default function LoginPage() {
         <div className="page-header-image" />
         <div className="background-login-image">
           <Container>
+            <Row>
             <Col className="mx-auto" lg="5" md="8">
               <Card className="card-login">
                 <Form action="" className="form" method="">
@@ -213,6 +215,8 @@ export default function LoginPage() {
                 </Form>
               </Card>
             </Col>
+            </Row>
+            
           </Container>
         </div>
       </div>
