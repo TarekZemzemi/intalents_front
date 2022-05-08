@@ -74,7 +74,9 @@ export default function LoginPage() {
       "Content-Type": "application/x-www-form-urlencoded",
     };
     axios
-      .post(LOGIN, params, headers)
+      .post(LOGIN, params, {
+        headers: headers
+      })
       .then((result) => {
         if (result.status === 200 && "access_token" in result.data) {
           decodeJwt(result.data["access_token"]);
