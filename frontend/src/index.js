@@ -43,6 +43,10 @@ import CheckProfile from "../src/app_component/user_profile/checkProfile";
 import Message from "../src/app_component/chat/messages";
 import Talents from "../src/app_component/home/talents";
 import Welcome from "../src/app_component/home/welcome";
+import axios from "axios"; // import to set defaults
+
+// default api url
+axios.defaults.baseURL = 'http://20.76.254.92:80';
 
 ReactDOM.render(
   <BrowserRouter>
