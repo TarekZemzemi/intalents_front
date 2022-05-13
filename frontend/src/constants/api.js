@@ -17,3 +17,4 @@ export const GET_MESSAGES_BY_CONVERSATION_ID =
   "/get_messages/{conversation_id}";
 export const UPLOAD_USER_PICTURE = "/users/pictures/upload_pictures/";
 export const GET_USER_PICUTRES = "/users/pictures/get_pictures/";
+export const BCKND_API_IP = 'http://20.76.254.92:80'
