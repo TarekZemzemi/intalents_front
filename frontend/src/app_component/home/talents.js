@@ -67,7 +67,7 @@ export default function Talents() {
             <Row>
               {users
                 .filter((val) => {
-                  if (searchTerm == "") {
+                  if (searchTerm === "") {
                     return val;
                   } else if (
                     val.job.toLowerCase().includes(searchTerm.toLowerCase())

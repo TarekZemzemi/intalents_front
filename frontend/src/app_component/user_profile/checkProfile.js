@@ -289,7 +289,7 @@ export default function CheckProfile(props) {
               <Col className="ml-auto mr-auto" lg="4" md="6">
                 <Card className="card-coin card-plain">
                   <CardHeader>
-                    {userinfo.pictureName == undefined ? (
+                    {userinfo.pictureName === undefined ? (
                       <img
                         src={"../no_image.jpg"}
                         className="img-center img-fluid rounded-circle"

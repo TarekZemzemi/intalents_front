@@ -364,7 +364,7 @@ const TagsInput = React.forwardRef((props, ref) => {
 
     setIsFocusedState(false);
 
-    if (e == null) {
+    if (e === null) {
       return;
     }
 

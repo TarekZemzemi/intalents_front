@@ -47,6 +47,12 @@ import ProtectedRoutes from "./ProtectedRoutes"
 import axios from "axios";
 import { BCKND_API_IP } from "./constants/api"; // import to set defaults
 
+// add fix for You need to enable JavaScript to run this app. when calling endpoints
+// app.use(express.static(__dirname));
+// app.get("/*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "index.html"));
+// });
+
 // default api url
 axios.defaults.baseURL = BCKND_API_IP;
 

@@ -22,7 +22,7 @@ spec:
         "kubernetes.io/os": linux
       containers:
       - name: tarek-frontend-intalents
-        image: acrintalents.azurecr.io/tarek/react-intalents:alpha-35
+        image: acrintalents.azurecr.io/tarek/react-intalents:alpha-44
         ports:
         - containerPort: 80
         resources:

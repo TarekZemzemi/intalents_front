@@ -17,7 +17,7 @@
 import React from "react";
 // used for making the prop types of this component
 import PropTypes from "prop-types";
-
+import axios from "axios";
 import { Button } from "reactstrap";
 
 import defaultImage from "assets/img/image_placeholder.jpg";
@@ -41,7 +41,7 @@ export default function ProfileImageUpload(
   React.useEffect(() => {
     auth.getUser().then((user) => {
       setUserId(user.id);
-      if (user.pictureName == null) {
+      if (user.pictureName === null) {
         setImagePreviewUrl("no_image.jpg");
       } else {
         setImagePreviewUrl("uploaded_pictures/" + user.pictureName);
@@ -62,24 +62,36 @@ export default function ProfileImageUpload(
     reader.readAsDataURL(file);
   };
   const handleSubmit = (id, file) => {
-    let Formdata = new FormData();
-    Formdata.append("image", file);
-    fetch(UPLOAD_PROFILE_PICTURE + id, {
-      mode: "no-cors",
-      method: "POST",
-      body: Formdata,
-    }).then(
-      function (res) {
-        if (res.ok) {
-          alert("profile picture uploaded successfuly ");
-        } else if (res.status == 401) {
-          alert("error ");
-        }
-      },
-      function (e) {
-        alert("Error submitting form!");
+    let formdata = new FormData();
+    formdata.append("image", file);
+    // mode no-cors doesn't exist in axios but can if needed add the cors header 'Access-Control-Allow-Origin', "*" (check https://github.com/axios/axios/issues/1358#issuecomment-451688768)
+    axios.post(UPLOAD_PROFILE_PICTURE.concat(id), formdata, {})
+    .then(res => {
+      if (res.status === 200) {
+        alert("profile picture uploaded successfully");
+      } else if (res.status === 401) {
+        alert("error");
       }
-    );
+    })
+    .catch(e => {
+      alert("error submitting form!");
+    })
+    // fetch(UPLOAD_PROFILE_PICTURE + id, {
+    //   mode: "no-cors",
+    //   method: "POST",
+    //   body: formdata,
+    // }).then(
+    //   function (res) {
+    //     if (res.ok) {
+    //       alert("profile picture uploaded successfully");
+    //     } else if (res.status === 401) {
+    //       alert("error ");
+    //     }
+    //   },
+    //   function (e) {
+    //     alert("error submitting form!");
+    //   }
+    // );
   };
   const handleClick = () => {
     fileInput.current.click();

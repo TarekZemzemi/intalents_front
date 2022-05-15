@@ -86,17 +86,17 @@ export default function Profile() {
               <Col className="ml-auto mr-auto" lg="5" md="6">
                 <Card className="card-coin card-plain">
                   <CardHeader>
-                    {userinfo.pictureName == undefined ? (
+                    {userinfo.pictureName === undefined ? (
                       <img
                         src={"no_image.jpg"}
                         className="img-center img-fluid rounded-circle"
-                        alt="sample Image"
+                        alt="profile picture"
                       />
                     ) : (
                       <img
                         src={"uploaded_pictures/" + userinfo.pictureName}
                         className="img-center img-fluid rounded-circle"
-                        alt="sample Image"
+                        alt="profile picture"
                       />
                     )}
 

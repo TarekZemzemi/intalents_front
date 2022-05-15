@@ -56,12 +56,12 @@ export default function RegisterClient() {
   }, []);
 
   const validationErrorHandler = (error) => {
-    if (error == "400") {
+    if (error === "400") {
       setErrorEmail("Email already exist");
     } else {
       setErrorEmail("");
     }
-    if (error == "401") {
+    if (error === "401") {
       setErrorUsername("Username already exist");
     } else {
       setErrorUsername("");

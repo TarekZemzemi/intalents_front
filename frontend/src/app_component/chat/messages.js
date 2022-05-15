@@ -179,7 +179,7 @@ export default function Message() {
                     {[...userConversations]
                       .reverse()
                       .filter((val) => {
-                        if (searchKeyWord == "") {
+                        if (searchKeyWord === "") {
                           return val;
                         } else if (
                           val.participants[0].firstName
@@ -260,7 +260,7 @@ export default function Message() {
                     <Row>
                       <Col md="10">
                         <Media className="align-items-center">
-                          {receiverInfo.pictureName == undefined ? (
+                          {receiverInfo.pictureName === undefined ? (
                             <img
                               src={"no_image.jpg"}
                               className="avatar"
@@ -329,7 +329,7 @@ export default function Message() {
                   </CardHeader>
                   <CardBody>
                     {/* /****connected user messages */}
-                    {selectDiscussionMessages.length == 0 ? (
+                    {selectDiscussionMessages.length === 0 ? (
                       <div
                         style={{
                           height: "468px",
@@ -342,7 +342,7 @@ export default function Message() {
                         return (
                           <Row
                             className={
-                              userinfo.id == message.sender_id
+                              userinfo.id === message.sender_id
                                 ? "justify-content-end"
                                 : "justify-content-start text-right"
                             }
@@ -351,7 +351,7 @@ export default function Message() {
                             <Col xs={{ size: "auto" }}>
                               <Card
                                 className={
-                                  userinfo.id == message.sender_id ? "" : ""
+                                  userinfo.id === message.sender_id ? "" : ""
                                 }
                               >
                                 <CardBody className="">

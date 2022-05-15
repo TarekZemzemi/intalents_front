@@ -70,7 +70,7 @@ export default function NavBar() {
             </Row>
           </div>
           <Nav className="ml-auto" navbar>
-            {userInfo.role == "admin" ? (
+            {userInfo.role === "admin" ? (
               <NavItem>
                 <NavLink
                   href="#chat"
@@ -82,7 +82,7 @@ export default function NavBar() {
                 </NavLink>
               </NavItem>
             ) : null}
-            {userInfo.role == "client" || userInfo.role == "admin" ? (
+            {userInfo.role === "client" || userInfo.role === "admin" ? (
               <NavItem>
                 <NavLink
                   href="#post_add"
@@ -94,7 +94,7 @@ export default function NavBar() {
                 </NavLink>
               </NavItem>
             ) : null}
-            {userInfo.role == "client" || userInfo.role == "admin" ? (
+            {userInfo.role === "client" || userInfo.role === "admin" ? (
               <NavItem>
                 <NavLink
                   href="#talents"

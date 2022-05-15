@@ -96,7 +96,7 @@ export default function PostAdd() {
       function (res) {
         if (res.ok) {
           alert("profile picture uploaded successfuly ");
-        } else if (res.status == 401) {
+        } else if (res.status === 401) {
           alert("error ");
         }
       },
