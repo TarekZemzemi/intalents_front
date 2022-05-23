@@ -15,7 +15,7 @@ import {
 import Navbar from "app_component/NavBar/navbar";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import Select from "react-select";
-import { POST_ADD } from "constants/api";
+import {POST_ADD, REGISTER} from "constants/api";
 import axios from "axios";
 import auth from "app_component/authentication/auth";
 import validation from "./post_validation";
@@ -80,23 +80,26 @@ export default function PostAdd() {
       post_teaser_picture: values.post_teaser_picture,
       file: file,
     };
-    let Formdata = new FormData();
-    Formdata.append("image", file);
-    Formdata.append("title", values.title);
-    Formdata.append("description", values.description);
-    Formdata.append("address", values.adress);
-    Formdata.append("language", language.label);
-    Formdata.append("field", field.label);
+    let formData = new FormData();
+    formData.append("image", file);
+    formData.append("title", values.title);
+    formData.append("description", values.description);
+    formData.append("address", values.adress);
+    formData.append("language", language.label);
+    formData.append("field", field.label);
 
-    console.log(values.field);
-    fetch("/users/" + userinfo.id + "/posts", {
-      method: "POST",
-      body: Formdata,
-    }).then(
+    // console.log(values.field);
+    axios
+    .post("/users/" + userinfo.id + "/posts", formData, {})
+    // fetch("/users/" + userinfo.id + "/posts", {
+    //   method: "POST",
+    //   body: formData,
+    // })
+    .then(
       function (res) {
         if (res.ok) {
-          alert("profile picture uploaded successfuly ");
-        } else if (res.status == 401) {
+          alert("profile picture uploaded successfuly");
+        } else if (res.status === 401) {
           alert("error ");
         }
       },

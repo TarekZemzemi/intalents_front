@@ -95,7 +95,7 @@ export default function Home() {
 
                         <br />
                         <Col sm="8">
-                          <h7>Language</h7>
+                          <h6>Language</h6>
 
                           <CustomInput
                             type="switch"
@@ -129,7 +129,7 @@ export default function Home() {
                             onChange={() => {
                               handleToggleRadio(languages[3].id);
                             } } />
-                          <h8>Hourly rate $</h8>
+                          <h6>Hourly rate $</h6>
                           <div
                             className="slider mt-2"
                             ref={slider1}
@@ -147,7 +147,7 @@ export default function Home() {
                     checkedListRadio.indexOf(4) === -1
                     ? postCreators
                       .filter((val) => {
-                        if (searchTerm == "") {
+                        if (searchTerm === "") {
                           return val;
                         } else if (val.Post.title
                           .toLowerCase()
@@ -175,7 +175,7 @@ export default function Home() {
                                   </CardTitle>
                                   <div className="author">
                                     <Link to={`/profile/${p.id}`}>
-                                      {p.pictureName == undefined ? (
+                                      {p.pictureName === undefined ? (
                                         <img
                                           src={"no_image.jpg"}
                                           className="avatar img-raised"
@@ -220,7 +220,7 @@ export default function Home() {
                                 </CardBody>
                               </Col>
                               <Col lg="3" className="pt-5">
-                                {p.Post.post_teaser_picture_name == null ? (
+                                {p.Post.post_teaser_picture_name === null ? (
                                   <div
                                     className="card-image pt-5"
                                   >
@@ -257,7 +257,7 @@ export default function Home() {
                           </Card>
                         );
                       })
-                    : checkedListRadio.indexOf(languages[0].id) != -1
+                    : checkedListRadio.indexOf(languages[0].id) !== -1
                       ? postCreators //filter for english language
                         .filter((p) => p.Post.language === languages[0].name)
                         .map((p, index) => {
@@ -328,7 +328,7 @@ export default function Home() {
                             </Card>
                           );
                         })
-                      : checkedListRadio.indexOf(languages[1].id) != -1
+                      : checkedListRadio.indexOf(languages[1].id) !== -1
                         ? postCreators
                           //filter for the french language
                           .filter(
@@ -402,7 +402,7 @@ export default function Home() {
                               </Card>
                             );
                           })
-                        : checkedListRadio.indexOf(languages[2].id) != -1
+                        : checkedListRadio.indexOf(languages[2].id) !== -1
                           ? postCreators
                             .filter(
                               //filter for the arabic language
@@ -476,7 +476,7 @@ export default function Home() {
                                 </Card>
                               );
                             })
-                          : checkedListRadio.indexOf(languages[3].id) != -1
+                          : checkedListRadio.indexOf(languages[3].id) !== -1
                             ? postCreators
                               .filter(
                                 // filter for the spanish language
@@ -551,9 +551,9 @@ export default function Home() {
                                 );
                               })
                             : // filter for the english , french and arabic languages
-                            checkedListRadio.indexOf(languages[0].id) != -1 &&
-                              checkedListRadio.indexOf(languages[1].id) != -1 &&
-                              checkedListRadio.indexOf(languages[2].id) != -1
+                            checkedListRadio.indexOf(languages[0].id) !== -1 &&
+                              checkedListRadio.indexOf(languages[1].id) !== -1 &&
+                              checkedListRadio.indexOf(languages[2].id) !== -1
                               ? postCreators
                                 .filter(
                                   (post) => post.Post.language === languages[0].name &&

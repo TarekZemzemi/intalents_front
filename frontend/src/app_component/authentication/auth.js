@@ -1,4 +1,6 @@
 import { GET_USER_INFO } from "constants/api";
+import axios from "axios";
+
 class Auth {
   logout = (callback) => {
     localStorage.removeItem("token");
@@ -8,16 +10,33 @@ class Auth {
   };
 
   getUser = async () => {
-    const token = localStorage.getItem("token");
+    return await this.getUserPromise()
+    .then((res) => {
+      return res.data
+    })
     // Create request to get user info using token
-    const request = new Request(GET_USER_INFO, {
-      method: "GET",
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    // Fetch request
-    const response = await fetch(request);
-    const data = await response.json();
-    return data;
+    // const request = new Request(GET_USER_INFO, {
+    //   method: "GET",
+    //   headers: { Authorization: `Bearer ${token}` },
+    // });
+    // // Fetch request
+    // const response = await fetch(request);
+    // const data = await response.json();
+    // return data;
+  };
+
+  getUserPromise = async () => {
+    const token = localStorage.getItem("token");
+    return await axios
+    .get(GET_USER_INFO, {
+      headers: {
+        accept: "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    })
+    .then((res) => {
+      return res
+    })
   };
 
   isAuthenticated = () => {

@@ -20,6 +20,7 @@ import PropTypes from "prop-types";
 
 import { Button } from "reactstrap";
 import auth from "app_component/authentication/auth";
+import axios from "axios";
 
 import defaultImage from "assets/img/image_placeholder.jpg";
 import defaultAvatar from "assets/img/placeholder.jpg";
@@ -58,26 +59,29 @@ export default function ImageUpload({ avatar, addBtnClasses }) {
     reader.readAsDataURL(file);
   };
   const handleSubmit = (id, file) => {
-    let Formdata = new FormData();
-    Formdata.append("user_id", id);
-    Formdata.append("images", file);
-    fetch(UPLOAD_USER_PICTURE + id, {
-      mode: "no-cors",
-      method: "POST",
-      body: Formdata,
-    }).then(
-      function (res) {
-        if (res.ok) {
-          toast.success("Photo uploaded successfully");
-          history.push("/profile");
-        } else if (res.status == 401) {
-          toast.error("Error while uploading");
+    let formdata = new FormData();
+    formdata.append("user_id", id);
+    formdata.append("images", file);
+    axios
+      .post(UPLOAD_USER_PICTURE.concat(id), formdata, {})
+    // fetch(UPLOAD_USER_PICTURE + id, {
+    //   mode: "no-cors",
+    //   method: "POST",
+    //   body: formdata,
+    // })
+      .then(
+        function (res) {
+          if (res.status === 201) {
+            toast.success("Photo uploaded successfully");
+            history.push("/profile");
+          } else if (res.status === 401) {
+            toast.error("Error while uploading");
+          }
+        },
+        function (e) {
+          toast.error("Error submitting form!");
         }
-      },
-      function (e) {
-        toast.error("Error submitting form!");
-      }
-    );
+      );
   };
   const handleClick = () => {
     fileInput.current.click();
@@ -89,7 +93,7 @@ export default function ImageUpload({ avatar, addBtnClasses }) {
   };
   return (
     <div className="fileinput text-center">
-      <input type="file" onChange={handleImageChange} ref={fileInput} />
+      <input type="file" onChange={handleImageChange} ref={fileInput} pro={{ accept: 'image/*' }} />
 
       <div>
         <Button

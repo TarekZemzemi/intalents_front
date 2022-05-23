@@ -25,6 +25,7 @@ import validation from "./validation";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import { REGISTER } from "../../constants/api";
 import Navbar from "app_component/NavBar/navbar";
+import axios from "axios";
 export default function RegisterClient() {
   const [fullNameFocus, setFullNameFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
@@ -56,12 +57,12 @@ export default function RegisterClient() {
   }, []);
 
   const validationErrorHandler = (error) => {
-    if (error == "400") {
+    if (error === "400") {
       setErrorEmail("Email already exist");
     } else {
       setErrorEmail("");
     }
-    if (error == "401") {
+    if (error === "401") {
       setErrorUsername("Username already exist");
     } else {
       setErrorUsername("");
@@ -77,13 +78,14 @@ export default function RegisterClient() {
       username: values.username,
       role: "client",
     };
-    fetch(REGISTER, {
-      method: "Post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
+    axios
+      .post(REGISTER, JSON.stringify(data), {})
+    // fetch(REGISTER, {
+    //   method: "Post",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(data),
+    // })
       .then((response) => validationErrorHandler(response.status))
-
       .catch((error) => validationErrorHandler(error.status));
   };
 

@@ -99,7 +99,7 @@ export default function Settings() {
         label: user.language,
         value: user.language,
       });
-      if (user.birthDate != null) {
+      if (user.birthDate !== null) {
         setYear({
           value: user.birthDate.substring(0, 4),
           label: user.birthDate.substring(0, 4),
