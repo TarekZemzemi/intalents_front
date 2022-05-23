@@ -22,7 +22,7 @@ import { Button } from "reactstrap";
 
 import defaultImage from "assets/img/image_placeholder.jpg";
 import defaultAvatar from "assets/img/placeholder.jpg";
-import { UPLOAD_PROFILE_PICTURE } from "constants/api";
+import { UPLOAD_PROFILE_PICTURE, BCKND_API_IP } from "constants/api";
 import auth from "app_component/authentication/auth";
 
 export default function ProfileImageUpload(
@@ -44,7 +44,7 @@ export default function ProfileImageUpload(
       if (user.pictureName === null) {
         setImagePreviewUrl("no_image.jpg");
       } else {
-        setImagePreviewUrl("uploaded_pictures/" + user.pictureName);
+        setImagePreviewUrl(BCKND_API_IP + "/uploaded_pictures?pic_name=" + user.pictureName);
       }
     });
   }, []);
@@ -110,7 +110,7 @@ export default function ProfileImageUpload(
           (avatar ? " img-circle" : "img-center img-fluid rounded-circle")
         }
       >
-        <img src={imagePreviewUrl} alt="..." />
+        <img src={imagePreviewUrl} alt="profile" />
       </div>
       <div>
         {file === null ? (

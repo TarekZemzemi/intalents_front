@@ -62,24 +62,26 @@ export default function ImageUpload({ avatar, addBtnClasses }) {
     let formdata = new FormData();
     formdata.append("user_id", id);
     formdata.append("images", file);
-    axios.post(UPLOAD_USER_PICTURE.concat(id), formdata, {})
-    fetch(UPLOAD_USER_PICTURE + id, {
-      mode: "no-cors",
-      method: "POST",
-      body: formdata,
-    }).then(
-      function (res) {
-        if (res.ok) {
-          toast.success("Photo uploaded successfully");
-          history.push("/profile");
-        } else if (res.status === 401) {
-          toast.error("Error while uploading");
+    axios
+      .post(UPLOAD_USER_PICTURE.concat(id), formdata, {})
+    // fetch(UPLOAD_USER_PICTURE + id, {
+    //   mode: "no-cors",
+    //   method: "POST",
+    //   body: formdata,
+    // })
+      .then(
+        function (res) {
+          if (res.status === 201) {
+            toast.success("Photo uploaded successfully");
+            history.push("/profile");
+          } else if (res.status === 401) {
+            toast.error("Error while uploading");
+          }
+        },
+        function (e) {
+          toast.error("Error submitting form!");
         }
-      },
-      function (e) {
-        toast.error("Error submitting form!");
-      }
-    );
+      );
   };
   const handleClick = () => {
     fileInput.current.click();

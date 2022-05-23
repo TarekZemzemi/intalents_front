@@ -21,7 +21,7 @@ import Navbar from "app_component/NavBar/navbar";
 import auth from "app_component/authentication/auth";
 import ImageUpload from "components/CustomUpload/ImageUpload.js";
 import { toast } from "react-toastify";
-import { GET_USER_PICUTRES } from "constants/api";
+import { GET_USER_PICUTRES, BCKND_API_IP } from "constants/api";
 import axios from "axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
@@ -38,7 +38,8 @@ export default function Profile() {
     document.scrollingElement.scrollTop = 0;
     wrapper.current.scrollTop = 0;
     document.body.classList.add("profile-page");
-    auth.getUser().then((user) => {
+    auth.getUserPromise().then((res) => {
+      let user = res.data
       setUserInfo(user);
       get_user_picutres(user.id);
     });
@@ -94,7 +95,7 @@ export default function Profile() {
                       />
                     ) : (
                       <img
-                        src={"uploaded_pictures/" + userinfo.pictureName}
+                        src={ BCKND_API_IP + "/uploaded_pictures?pic_name=" + userinfo.pictureName}
                         className="img-center img-fluid rounded-circle"
                         alt="profile picture"
                       />
@@ -241,7 +242,7 @@ export default function Profile() {
                         <img
                           alt="..."
                           className="img rounded"
-                          src={`uploaded_pictures/${picture.picture_name}`}
+                          src={BCKND_API_IP + `/uploaded_pictures?pic_name=${picture.picture_name}`}
                           style={style}
                         />
                       </a>

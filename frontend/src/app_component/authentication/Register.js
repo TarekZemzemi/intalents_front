@@ -23,10 +23,11 @@ import {
 import validation from "./validation";
 // core components
 import DemoFooter from "components/Footers/DemoFooter.js";
-import { REGISTER } from "../../constants/api";
+import {REGISTER, UPLOAD_USER_PICTURE} from "../../constants/api";
 import Navbar from "app_component/NavBar/navbar";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 toast.configure();
 export default function Register() {
@@ -81,13 +82,14 @@ export default function Register() {
       username: values.username,
       role: "talent",
     };
-    fetch(REGISTER, {
-      method: "Post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
+    axios
+      .post(REGISTER, JSON.stringify(data), {})
+    // fetch(REGISTER, {
+    //   method: "Post",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(data),
+    // })
       .then((response) => validationErrorHandler(response.status))
-
       .catch((error) => validationErrorHandler(error.status));
   };
 

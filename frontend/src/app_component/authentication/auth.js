@@ -10,14 +10,7 @@ class Auth {
   };
 
   getUser = async () => {
-    const token = localStorage.getItem("token");
-    return await axios
-      .get(GET_USER_INFO, {
-        headers: {
-          accept: "application/json",
-          "Authorization": `Bearer ${token}`
-        }
-      })
+    return await this.getUserPromise()
     .then((res) => {
       return res.data
     })
@@ -30,6 +23,20 @@ class Auth {
     // const response = await fetch(request);
     // const data = await response.json();
     // return data;
+  };
+
+  getUserPromise = async () => {
+    const token = localStorage.getItem("token");
+    return await axios
+    .get(GET_USER_INFO, {
+      headers: {
+        accept: "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    })
+    .then((res) => {
+      return res
+    })
   };
 
   isAuthenticated = () => {
