@@ -20,7 +20,6 @@ import {
   Col,
 } from "reactstrap";
 
-import validation from "./validation";
 // core components
 import DemoFooter from "components/Footers/DemoFooter.js";
 import {REGISTER, UPLOAD_USER_PICTURE} from "../../constants/api";
@@ -28,12 +27,16 @@ import Navbar from "app_component/NavBar/navbar";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import validation from "./validation";
+import { useHistory } from "react-router-dom";
 
 toast.configure();
+
 export default function Register() {
   const [fullNameFocus, setFullNameFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [passwordFocus, setPasswordFocus] = React.useState(false);
+  const history = useHistory();
   //sign up form attribute
   const [values, setValues] = React.useState({
     email: "",
@@ -60,20 +63,20 @@ export default function Register() {
   }, []);
 
   const validationErrorHandler = (error) => {
-    if (error === "400") {
+    if (error === 400) {
       setErrorEmail("Email already exist");
       toast.error("email already exist");
     } else {
       setErrorEmail("");
     }
-    if (error === "401") {
+    if (error === 401) {
       setErrorUsername("Username already exist");
     } else {
       setErrorUsername("");
     }
   };
 
-  const registerUserHAndler = (event) => {
+  const registerUserHandler = (event) => {
     event.preventDefault();
     setErrors(validation(values));
     const data = {
@@ -83,14 +86,17 @@ export default function Register() {
       role: "talent",
     };
     axios
-      .post(REGISTER, JSON.stringify(data), {})
+      .post(REGISTER, JSON.stringify(data))
     // fetch(REGISTER, {
     //   method: "Post",
     //   headers: { "Content-Type": "application/json" },
     //   body: JSON.stringify(data),
     // })
-      .then((response) => validationErrorHandler(response.status))
-      .catch((error) => validationErrorHandler(error.status));
+      .then((response) => {
+        history.push("/home");
+        toast.success("registered successfully");
+      })
+      .catch((error) => validationErrorHandler(error.response.status));
   };
 
   return (
@@ -226,7 +232,7 @@ export default function Register() {
                         className="btn-round"
                         color="info"
                         href="#"
-                        onClick={registerUserHAndler}
+                        onClick={registerUserHandler}
                         size="lg"
                       >
                         Get Started
