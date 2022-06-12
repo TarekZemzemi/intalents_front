@@ -44,6 +44,7 @@ import {
 import Navbar from "app_component/NavBar/navbar";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import {
+  BCKND_API_IP,
   GET_ALL_CONVERSATIONS,
   GET_MESSAGES_BY_CONVERSATION_ID,
   SEND_MESSAGE,
@@ -211,8 +212,8 @@ export default function Message() {
                                   alt="..."
                                   className="avatar"
                                   src={
-                                    "uploaded_pictures/" +
-                                    conversation.participants[0].pictureName
+                                      BCKND_API_IP + "/uploaded_pictures?pic_name=" +
+                                      conversation.participants[0].pictureName
                                   }
                                 />
                               )}
@@ -271,7 +272,8 @@ export default function Message() {
                               alt="..."
                               className="avatar"
                               src={
-                                "uploaded_pictures/" + receiverInfo.pictureName
+                                  BCKND_API_IP + "/uploaded_pictures?pic_name=" +
+                                  receiverInfo.pictureName
                               }
                             />
                           )}

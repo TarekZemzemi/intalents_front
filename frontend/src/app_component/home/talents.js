@@ -14,7 +14,7 @@ import {
 } from "reactstrap";
 import Navbar from "app_component/NavBar/navbar";
 import DemoFooter from "components/Footers/DemoFooter.js";
-import { GET_USERS } from "constants/api";
+import {BCKND_API_IP, GET_USERS} from "constants/api";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -87,8 +87,8 @@ export default function Talents() {
                           style={{
                             backgroundImage:
                               "url(" +
-                              "uploaded_pictures/" +
-                              user.pictureName +
+                                BCKND_API_IP + "/uploaded_pictures?pic_name=" +
+                                user.pictureName +
                               ")",
                           }}
                         />

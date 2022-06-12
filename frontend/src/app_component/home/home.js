@@ -17,7 +17,7 @@ import {
 import Navbar from "app_component/NavBar/navbar";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import axios from "axios";
-import { GET_USERS_POSTS } from "constants/api";
+import {BCKND_API_IP, GET_USERS_POSTS} from "constants/api";
 
 
 export default function Home() {
@@ -182,7 +182,7 @@ export default function Home() {
                                           alt="sample Image" />
                                       ) : (
                                         <img
-                                          src={"uploaded_pictures/" +
+                                          src={BCKND_API_IP + "/uploaded_pictures?pic_name=" +
                                             p.pictureName}
                                           className="avatar img-raised"
                                           alt="sample Image" />
@@ -247,7 +247,7 @@ export default function Home() {
                                       <img
                                         alt="..."
                                         className="img rounded"
-                                        src={"uploaded_pictures/" +
+                                        src={BCKND_API_IP + "/uploaded_pictures?pic_name=" +
                                           p.Post.post_teaser_picture_name} />
                                     </a>
                                   </div>
