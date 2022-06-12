@@ -26,6 +26,10 @@ import DemoFooter from "components/Footers/DemoFooter.js";
 import { REGISTER } from "../../constants/api";
 import Navbar from "app_component/NavBar/navbar";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
+
 export default function RegisterClient() {
   const [fullNameFocus, setFullNameFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
@@ -59,13 +63,9 @@ export default function RegisterClient() {
   const validationErrorHandler = (error) => {
     if (error === "400") {
       setErrorEmail("Email already exist");
-    } else {
-      setErrorEmail("");
     }
     if (error === "401") {
       setErrorUsername("Username already exist");
-    } else {
-      setErrorUsername("");
     }
   };
 
@@ -80,11 +80,11 @@ export default function RegisterClient() {
     };
     axios
       .post(REGISTER, JSON.stringify(data), {})
-    // fetch(REGISTER, {
-    //   method: "Post",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(data),
-    // })
+      // fetch(REGISTER, {
+      //   method: "Post",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(data),
+      // })
       .then((response) => validationErrorHandler(response.status))
       .catch((error) => validationErrorHandler(error.status));
   };
@@ -144,6 +144,7 @@ export default function RegisterClient() {
                           onChange={hangleChange}
                           value={values.username}
                           name="username"
+                          className="place-holder-input"
                         />
                       </InputGroup>
                       {errors.username && (
@@ -168,6 +169,7 @@ export default function RegisterClient() {
                           onChange={hangleChange}
                           value={values.email}
                           name="email"
+                          className="place-holder-input"
                         />
                       </InputGroup>
                       {errors.email && (
@@ -194,6 +196,7 @@ export default function RegisterClient() {
                           onChange={hangleChange}
                           value={values.password}
                           name="password"
+                          className="place-holder-input"
                         />
                       </InputGroup>
                       {errors.password && (
