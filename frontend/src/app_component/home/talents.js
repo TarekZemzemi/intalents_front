@@ -14,9 +14,10 @@ import {
 } from "reactstrap";
 import Navbar from "app_component/NavBar/navbar";
 import DemoFooter from "components/Footers/DemoFooter.js";
-import { GET_USERS } from "constants/api";
+import {BCKND_API_IP, GET_USERS} from "constants/api";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import defaultImg from '../../assets/img/1234.png'
 
 export default function Talents() {
   const [users, setUsers] = React.useState([]);
@@ -82,16 +83,33 @@ export default function Talents() {
                         className="card-blog card-background"
                         data-animation="zooming"
                       >
-                        <div
-                          className="full-background"
-                          style={{
-                            backgroundImage:
-                              "url(" +
-                              "uploaded_pictures/" +
-                              user.pictureName +
-                              ")",
-                          }}
-                        />
+                        { user.pictureName !== null ?
+                            <div
+                                className="full-background"
+                                style={{
+                                  backgroundImage:
+                                      `url('${BCKND_API_IP}/uploaded_pictures?pic_name=${user.pictureName}')`,
+                                }}
+                            />
+                            :
+                            <div
+                                className="full-background"
+                                style={{
+                                  backgroundImage: `url(${defaultImg})`,
+                                }}
+                            />
+                        }
+                        {/*<div*/}
+                        {/*  className="full-background"*/}
+                        {/*  style={{*/}
+                        {/*    backgroundImage:*/}
+                        {/*      "url('" +*/}
+                        {/*        require(*/}
+                        {/*          BCKND_API_IP + "/uploaded_pictures?pic_name=" +*/}
+                        {/*          user.pictureName) +*/}
+                        {/*      "')",*/}
+                        {/*  }}*/}
+                        {/*/>*/}
                         <CardBody>
                           <div className="content-bottom">
                             <h6 className="card-category">
