@@ -183,9 +183,9 @@ export default function Message() {
                         if (searchKeyWord === "") {
                           return val;
                         } else if (
-                          val.participants[0].firstName
-                            .toLowerCase()
-                            .includes(searchKeyWord.toLowerCase())
+                          val?.participants[0]?.firstName?.includes(
+                            searchKeyWord.toLowerCase()
+                          )
                         ) {
                           return val;
                         }
@@ -212,8 +212,9 @@ export default function Message() {
                                   alt="..."
                                   className="avatar"
                                   src={
-                                      BCKND_API_IP + "/uploaded_pictures?pic_name=" +
-                                      conversation.participants[0].pictureName
+                                    BCKND_API_IP +
+                                    "/uploaded_pictures?pic_name=" +
+                                    conversation.participants[0].pictureName
                                   }
                                 />
                               )}
@@ -227,11 +228,11 @@ export default function Message() {
                                   <div>
                                     <small className="text-muted">
                                       read at{" "}
-                                      {conversation.last_msg_read_at.substring(
+                                      {conversation.last_msg_read_at?.substring(
                                         0,
                                         10
                                       )}{" "}
-                                      {conversation.last_msg_read_at.substring(
+                                      {conversation.last_msg_read_at?.substring(
                                         11,
                                         16
                                       )}
@@ -242,7 +243,7 @@ export default function Message() {
                                   className="text-muted text-small p-0 text-truncate d-block"
                                   xs="11"
                                 >
-                                  {conversation.conversation_name.substring(
+                                  {conversation.conversation_name?.substring(
                                     0,
                                     20
                                   ) + "..."}
@@ -272,8 +273,9 @@ export default function Message() {
                               alt="..."
                               className="avatar"
                               src={
-                                  BCKND_API_IP + "/uploaded_pictures?pic_name=" +
-                                  receiverInfo.pictureName
+                                BCKND_API_IP +
+                                "/uploaded_pictures?pic_name=" +
+                                receiverInfo.pictureName
                               }
                             />
                           )}
@@ -361,8 +363,9 @@ export default function Message() {
                                   <div>
                                     <small className="opacity-60">
                                       <i className="far fa-clock" />{" "}
-                                      {message.created_time.substring(0, 10)} at{" "}
-                                      {message.created_time.substring(11, 16)}
+                                      {message.created_time?.substring(0, 10)}{" "}
+                                      at{" "}
+                                      {message.created_time?.substring(11, 16)}
                                     </small>
                                   </div>
                                 </CardBody>

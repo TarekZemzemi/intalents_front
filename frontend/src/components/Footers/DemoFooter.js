@@ -54,22 +54,22 @@ export default function DemoFooter() {
             <Col md="3" xs="6">
               <Nav>
                 <NavItem>
-                  <NavLink to="/index" tag={Link}>
+                  <NavLink to="/home" tag={Link}>
                     Home
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                   <NavLink to="/landing-page" tag={Link}>
                     Landing
                   </NavLink>
-                </NavItem>
+                </NavItem> */}
                 <NavItem>
-                  <NavLink to="/register-page" tag={Link}>
+                  <NavLink to="/register" tag={Link}>
                     Register
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/profile-page" tag={Link}>
+                  <NavLink to="/profile" tag={Link}>
                     Profile
                   </NavLink>
                 </NavItem>
@@ -79,35 +79,30 @@ export default function DemoFooter() {
               <Nav>
                 <NavItem>
                   <NavLink
-                    href="https://creative-tim.com/contact-us?ref=blkdspr-footer"
-                    target="_blank"
+                  // href="https://creative-tim.com/contact-us?ref=blkdspr-footer"
+                  // target="_blank"
                   >
                     Contact Us
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink
-                    href="https://creative-tim.com/about-us?ref=blkdspr-footer"
-                    target="_blank"
+                  // href="https://creative-tim.com/about-us?ref=blkdspr-footer"
+                  // target="_blank"
                   >
                     About Us
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink
-                    href="http://creative-tim.com/blog?ref=blkdspr-footer"
-                    target="_blank"
+                  // href="http://creative-tim.com/blog?ref=blkdspr-footer"
+                  // target="_blank"
                   >
                     Blog
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink
-                    href="https://opensource.org/licenses/MIT?ref=blkdspr-footer"
-                    target="_blank"
-                  >
-                    License
-                  </NavLink>
+                  <NavLink>License</NavLink>
                 </NavItem>
               </Nav>
             </Col>
@@ -118,7 +113,6 @@ export default function DemoFooter() {
                 <Button
                   className="btn-icon btn-neutral btn-round btn-simple"
                   color="default"
-                  href="https://twitter.com/creativetim"
                   id="tooltip39661217"
                   target="_blank"
                 >
@@ -130,7 +124,6 @@ export default function DemoFooter() {
                 <Button
                   className="btn-icon btn-neutral btn-round btn-simple ml-1"
                   color="default"
-                  href="https://www.facebook.com/creativetim"
                   id="tooltip206037619"
                   target="_blank"
                 >
@@ -142,11 +135,11 @@ export default function DemoFooter() {
                 <Button
                   className="btn-icon btn-neutral btn-round btn-simple ml-1"
                   color="default"
-                  href="https://dribbble.com/creativetim"
+                  href="https://www.instagram.com/intalentsagency/"
                   id="tooltip750293512"
                   target="_blank"
                 >
-                  <i className="fab fa-dribbble" />
+                  <i className="fab fa-instagram" />
                 </Button>
                 <UncontrolledTooltip delay={0} target="tooltip750293512">
                   Follow us

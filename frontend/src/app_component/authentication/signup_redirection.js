@@ -25,7 +25,7 @@ export default function SignupRedirection() {
               width="290px"
             />
             <h1 className="h1-seo ">
-              <strong> Welcome to In-TALENTS</strong>
+              <strong> Welcome to InTALENTS</strong>
             </h1>
             <h2>Find your dream job in many coutries all over the world.</h2>
             <p>

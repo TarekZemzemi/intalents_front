@@ -48,8 +48,13 @@ import Navbar from "app_component/NavBar/navbar";
 import auth from "app_component/authentication/auth";
 import { UPDATE_USER } from "constants/api";
 import axios from "axios";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useHistory } from "react-router";
+toast.configure();
 export default function Settings() {
+  const history = useHistory();
+
   const [profileTabs, setProfileTabs] = React.useState(1);
 
   const wrapper = React.useRef(null);
@@ -144,17 +149,17 @@ export default function Settings() {
     axios
       .put(UPDATE_USER.replace("{user_id}", values.id), params)
       .then((response) => {
-        console.log(response.data);
+        history.push("/user-settings");
+        toast.success("Profile updated successfully");
       })
       .catch((error) => {
-        console.log("error", error);
+        toast.success("An error has occured !");
       });
   };
 
   return (
     <>
       <Navbar />
-      {/* {console.log(values.id)} */}
       <div className="wrapper" ref={wrapper}>
         <div className="section">
           <Container>

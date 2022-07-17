@@ -14,15 +14,20 @@ import {
 } from "reactstrap";
 import Navbar from "app_component/NavBar/navbar";
 import DemoFooter from "components/Footers/DemoFooter.js";
-import {BCKND_API_IP, GET_USERS} from "constants/api";
+import { BCKND_API_IP, GET_USERS } from "constants/api";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import defaultImg from '../../assets/img/1234.png'
-
+import defaultImg from "../../assets/img/1234.png";
+import CloseIcon from "@material-ui/icons/Close";
 export default function Talents() {
   const [users, setUsers] = React.useState([]);
   const [searchTerm, setSearchTerm] = React.useState("");
-
+  const [model, setModel] = React.useState(false);
+  const [tempimgSrc, setTempimgSrc] = React.useState("");
+  const getImg = (imgSrc) => {
+    setTempimgSrc(imgSrc);
+    setModel(true);
+  };
   React.useEffect(() => {
     get_users();
   }, []);
@@ -66,67 +71,61 @@ export default function Talents() {
               </h3>
             </div>
             <Row>
-              {users
-                .filter((val) => {
-                  if (searchTerm === "") {
-                    return val;
-                  } else if (
-                    val.job.toLowerCase().includes(searchTerm.toLowerCase())
-                  ) {
-                    return val;
-                  }
-                })
-                .map((user) => {
-                  return (
-                    <Col lg="3">
-                      <Card
-                        className="card-blog card-background"
-                        data-animation="zooming"
-                      >
-                        { user.pictureName !== null ?
-                            <div
-                                className="full-background"
-                                style={{
-                                  backgroundImage:
-                                      `url('${BCKND_API_IP}/uploaded_pictures?pic_name=${user.pictureName}')`,
-                                }}
-                            />
-                            :
-                            <div
-                                className="full-background"
-                                style={{
-                                  backgroundImage: `url(${defaultImg})`,
-                                }}
-                            />
-                        }
-                        {/*<div*/}
-                        {/*  className="full-background"*/}
-                        {/*  style={{*/}
-                        {/*    backgroundImage:*/}
-                        {/*      "url('" +*/}
-                        {/*        require(*/}
-                        {/*          BCKND_API_IP + "/uploaded_pictures?pic_name=" +*/}
-                        {/*          user.pictureName) +*/}
-                        {/*      "')",*/}
-                        {/*  }}*/}
-                        {/*/>*/}
-                        <CardBody>
-                          <div className="content-bottom">
-                            <h6 className="card-category">
-                              {user.country},{user.city}
-                            </h6>
-                            <a
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <CardTitle tag="h3">{user.firstName}</CardTitle>
-                            </a>
-                          </div>
-                        </CardBody>
-                      </Card>
-                    </Col>
-                  );
-                })}{" "}
+              <div className={model ? "model open" : "model"}>
+                <img src={tempimgSrc} />
+                <CloseIcon onClick={() => setModel(false)} />
+              </div>
+              <div className="gallery">
+                {users
+                  .filter((val) => {
+                    if (searchTerm === "") {
+                      return val;
+                    } else if (
+                      val.job.toLowerCase().includes(searchTerm.toLowerCase())
+                    ) {
+                      return val;
+                    }
+                  })
+                  .map((user, index) => {
+                    {
+                      return user.pictureName == undefined ? (
+                        <div
+                          className="pics"
+                          key={index}
+                          onClick={() =>
+                            getImg(
+                              BCKND_API_IP +
+                                "/uploaded_pictures?pic_name=" +
+                                user.pictureName
+                            )
+                          }
+                        >
+                          <img src={"no_image.jpg"} alt="profile picture" />
+                        </div>
+                      ) : (
+                        <div
+                          className="pics"
+                          key={index}
+                          onClick={() =>
+                            getImg(
+                              BCKND_API_IP +
+                                "/uploaded_pictures?pic_name=" +
+                                user.pictureName
+                            )
+                          }
+                        >
+                          <img
+                            src={
+                              BCKND_API_IP +
+                              "/uploaded_pictures?pic_name=" +
+                              user.pictureName
+                            }
+                          />
+                        </div>
+                      );
+                    }
+                  })}{" "}
+              </div>
             </Row>
           </Container>
         </div>

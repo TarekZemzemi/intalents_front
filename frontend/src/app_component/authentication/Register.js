@@ -22,7 +22,7 @@ import {
 
 // core components
 import DemoFooter from "components/Footers/DemoFooter.js";
-import {REGISTER, UPLOAD_USER_PICTURE} from "../../constants/api";
+import { REGISTER, UPLOAD_USER_PICTURE } from "../../constants/api";
 import Navbar from "app_component/NavBar/navbar";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -87,13 +87,13 @@ export default function Register() {
     };
     axios
       .post(REGISTER, JSON.stringify(data))
-    // fetch(REGISTER, {
-    //   method: "Post",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(data),
-    // })
+      // fetch(REGISTER, {
+      //   method: "Post",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(data),
+      // })
       .then((response) => {
-        history.push("/home");
+        history.push("/login");
         toast.success("registered successfully");
       })
       .catch((error) => validationErrorHandler(error.response.status));
@@ -214,12 +214,15 @@ export default function Register() {
                           <p className="text-danger">{errors.password}</p>
                         )}
 
-                        <FormGroup check className="text-left">
-                          <Label check>
-                            <Input type="checkbox" />
-                            <span className="form-check-sign" />I agree to the{" "}
-                            <a href="#h" onClick={(e) => e.preventDefault()}>
-                              terms and conditions
+                        <FormGroup className="text-left ">
+                          <Label check style={{ color: "purple" }}>
+                            <span
+                              className="form-check-sign signin-button"
+                              style={{ color: "purple" }}
+                            />
+                            Already a member ?{" "}
+                            <a href="#h" onClick={() => history.push("/login")}>
+                              Sign in
                             </a>
                             .
                           </Label>

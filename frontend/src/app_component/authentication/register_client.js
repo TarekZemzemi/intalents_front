@@ -28,6 +28,7 @@ import Navbar from "app_component/NavBar/navbar";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useHistory } from "react-router";
 toast.configure();
 
 export default function RegisterClient() {
@@ -40,6 +41,7 @@ export default function RegisterClient() {
     password: "",
     username: "",
   });
+  const history = useHistory();
 
   //handling form attribute changes
   const hangleChange = (event) => {
@@ -203,12 +205,15 @@ export default function RegisterClient() {
                         <p className="text-danger">{errors.password}</p>
                       )}
 
-                      <FormGroup check className="text-left">
-                        <Label check>
-                          <Input type="checkbox" />
-                          <span className="form-check-sign" />I agree to the{" "}
-                          <a href="#h" onClick={(e) => e.preventDefault()}>
-                            terms and conditions
+                      <FormGroup className="text-left ">
+                        <Label check style={{ color: "purple" }}>
+                          <span
+                            className="form-check-sign signin-button"
+                            style={{ color: "purple" }}
+                          />
+                          Already a member ?{" "}
+                          <a href="#h" onClick={() => history.push("/login")}>
+                            Sign in
                           </a>
                           .
                         </Label>

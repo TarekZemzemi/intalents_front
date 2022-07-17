@@ -21,7 +21,7 @@ import {
 
 import DemoFooter from "components/Footers/DemoFooter.js";
 import Navbar from "app_component/NavBar/navbar";
-import {BCKND_API_IP, GET_USER_BY_ID} from "constants/api";
+import { BCKND_API_IP, GET_USER_BY_ID } from "constants/api";
 import axios from "axios";
 import { CREATE_CONVERSATION, SEND_MESSAGE } from "../../constants/api";
 import auth from "app_component/authentication/auth";
@@ -79,8 +79,6 @@ export default function CheckProfile(props) {
     document.body.classList.add("profile-page");
     checkUserProfileInformations();
     getCurrentUserInformations();
-
-    console.log("li bch nab3athlou ", props.match.params.id);
     return function cleanup() {
       document.body.classList.remove("profile-page");
     };
@@ -297,7 +295,11 @@ export default function CheckProfile(props) {
                       />
                     ) : (
                       <img
-                        src={BCKND_API_IP + "/uploaded_pictures?pic_name=" + userinfo.pictureName}
+                        src={
+                          BCKND_API_IP +
+                          "/uploaded_pictures?pic_name=" +
+                          userinfo.pictureName
+                        }
                         className="img-center img-fluid rounded-circle"
                         alt="sample Image"
                       />

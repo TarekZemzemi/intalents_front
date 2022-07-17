@@ -15,13 +15,17 @@ import {
 import Navbar from "app_component/NavBar/navbar";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import Select from "react-select";
-import {POST_ADD, REGISTER} from "constants/api";
+import { POST_ADD, REGISTER } from "constants/api";
 import axios from "axios";
 import auth from "app_component/authentication/auth";
 import validation from "./post_validation";
 import ImageUpload from "components/CustomUpload/ImageUpload.js";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useHistory } from "react-router";
+toast.configure();
 export default function PostAdd() {
+  const history = useHistory();
   const required = {
     content: "*",
     color: "red",
@@ -62,8 +66,6 @@ export default function PostAdd() {
     reader.onloadend = () => {
       setFile(file);
     };
-    console.log(file);
-
     reader.readAsDataURL(file);
   };
 
@@ -87,26 +89,15 @@ export default function PostAdd() {
     formData.append("address", values.adress);
     formData.append("language", language.label);
     formData.append("field", field.label);
-
-    // console.log(values.field);
     axios
-    .post("/users/" + userinfo.id + "/posts", formData, {})
-    // fetch("/users/" + userinfo.id + "/posts", {
-    //   method: "POST",
-    //   body: formData,
-    // })
-    .then(
-      function (res) {
-        if (res.ok) {
-          alert("profile picture uploaded successfuly");
-        } else if (res.status === 401) {
-          alert("error ");
-        }
-      },
-      function (e) {
-        alert("Error submitting form!");
-      }
-    );
+      .post("/users/" + userinfo.id + "/posts", formData, {})
+      .then((response) => {
+        history.push("/home");
+        toast.success("Event added successfully");
+      })
+      .catch(() => {
+        toast.success("An error has occured");
+      });
   };
 
   return (

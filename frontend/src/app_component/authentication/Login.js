@@ -17,7 +17,7 @@ import {
   InputGroup,
   Container,
   Col,
-  Row
+  Row,
 } from "reactstrap";
 
 // core components
@@ -75,7 +75,7 @@ export default function LoginPage() {
     };
     axios
       .post(LOGIN, params, {
-        headers: headers
+        headers: headers,
       })
       .then((result) => {
         if (result.status === 200 && "access_token" in result.data) {
@@ -102,123 +102,122 @@ export default function LoginPage() {
         <div className="background-login-image">
           <Container>
             <Row>
-            <Col className="mx-auto" lg="5" md="8">
-              <Card className="card-login">
-                <Form action="" className="form" method="">
-                  <CardHeader
-                    className="card-header-login"
-                    style={{ padding: "0" }}
-                  >
-                    <div className="title-logo-login">
-                      <CardTitle tag="h2">Login</CardTitle>
+              <Col className="mx-auto" lg="5" md="8">
+                <Card className="card-login">
+                  <Form action="" className="form" method="">
+                    <CardHeader
+                      className="card-header-login"
+                      style={{ padding: "0" }}
+                    >
+                      <div className="title-logo-login">
+                        <CardTitle tag="h2">Login</CardTitle>
 
-                      <img
-                        alt="..."
-                        className="img rounded"
-                        src={
-                          require("assets/img/logo_intalents/Logomark-01.png")
-                            .default
-                        }
-                        style={{
-                          height: "105px",
-                          width: "130px",
-                          margin: "0%",
-                          position: "relative",
-                          top: "-8px",
-                          left: "-29px",
-                        }}
-                      />
+                        <img
+                          alt="..."
+                          className="img rounded"
+                          src={
+                            require("assets/img/logo_intalents/Logomark-01.png")
+                              .default
+                          }
+                          style={{
+                            height: "105px",
+                            width: "130px",
+                            margin: "0%",
+                            position: "relative",
+                            top: "-8px",
+                            left: "-29px",
+                          }}
+                        />
+                      </div>
+                    </CardHeader>
+
+                    <CardBody>
+                      <InputGroup
+                        className={classnames("input-lg", {
+                          "input-group-focus": firstNameFocus,
+                        })}
+                      >
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="tim-icons icon-single-02" />
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input
+                          placeholder="username..."
+                          type="text"
+                          onFocus={(e) => setFirstNameFocus(true)}
+                          onBlur={(e) => setFirstNameFocus(false)}
+                          name="username"
+                          value={values.username}
+                          onChange={handleChanges}
+                          className="place-holder-input"
+                        />
+                      </InputGroup>
+                      <InputGroup
+                        className={classnames("input-lg", {
+                          "input-group-focus": lastNameFocus,
+                        })}
+                      >
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="tim-icons icon-caps-small" />
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input
+                          placeholder="password..."
+                          type="password"
+                          onFocus={(e) => setLastNameFocus(true)}
+                          onBlur={(e) => setLastNameFocus(false)}
+                          value={values.password}
+                          name="password"
+                          onChange={handleChanges}
+                          className="place-holder-input"
+                        />
+                      </InputGroup>
+                      <center>
+                        {error && <p className="text-danger">{error}</p>}
+                      </center>
+                    </CardBody>
+
+                    <CardFooter className="text-center">
+                      <Button
+                        block
+                        className="btn-round"
+                        color="primary"
+                        href="#pablo"
+                        onClick={handleLogin}
+                        size="lg"
+                      >
+                        Sign in
+                      </Button>
+                    </CardFooter>
+
+                    <div className="pull-left ml-3 mb-3">
+                      <h6>
+                        <a
+                          className="link footer-link"
+                          href="#pablo"
+                          onClick={() => history.push("/signup_red")}
+                        >
+                          Create Account
+                        </a>
+                      </h6>
                     </div>
-                  </CardHeader>
-
-                  <CardBody>
-                    <InputGroup
-                      className={classnames("input-lg", {
-                        "input-group-focus": firstNameFocus,
-                      })}
-                    >
-                      <InputGroupAddon addonType="prepend">
-                        <InputGroupText>
-                          <i className="tim-icons icon-single-02" />
-                        </InputGroupText>
-                      </InputGroupAddon>
-                      <Input
-                        placeholder="username..."
-                        type="text"
-                        onFocus={(e) => setFirstNameFocus(true)}
-                        onBlur={(e) => setFirstNameFocus(false)}
-                        name="username"
-                        value={values.username}
-                        onChange={handleChanges}
-                        className="place-holder-input"
-                      />
-                    </InputGroup>
-                    <InputGroup
-                      className={classnames("input-lg", {
-                        "input-group-focus": lastNameFocus,
-                      })}
-                    >
-                      <InputGroupAddon addonType="prepend">
-                        <InputGroupText>
-                          <i className="tim-icons icon-caps-small" />
-                        </InputGroupText>
-                      </InputGroupAddon>
-                      <Input
-                        placeholder="password..."
-                        type="password"
-                        onFocus={(e) => setLastNameFocus(true)}
-                        onBlur={(e) => setLastNameFocus(false)}
-                        value={values.password}
-                        name="password"
-                        onChange={handleChanges}
-                        className="place-holder-input"
-                      />
-                    </InputGroup>
-                    <center>
-                      {error && <p className="text-danger">{error}</p>}
-                    </center>
-                  </CardBody>
-
-                  <CardFooter className="text-center">
-                    <Button
-                      block
-                      className="btn-round"
-                      color="primary"
-                      href="#pablo"
-                      onClick={handleLogin}
-                      size="lg"
-                    >
-                      Sign in
-                    </Button>
-                  </CardFooter>
-
-                  <div className="pull-left ml-3 mb-3">
-                    <h6>
-                      <a
-                        className="link footer-link"
-                        href="#pablo"
-                        onClick={() => history.push("/register")}
-                      >
-                        Create Account
-                      </a>
-                    </h6>
-                  </div>
-                  <div className="pull-right mr-3 mb-3">
-                    <h6>
-                      <a
-                        className="link footer-link"
-                        href="#pablo"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        Need Help?
-                      </a>
-                    </h6>
-                  </div>
-                </Form>
-              </Card>
-            </Col>
+                    <div className="pull-right mr-3 mb-3">
+                      <h6>
+                        <a
+                          className="link footer-link"
+                          href="#pablo"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          Need Help?
+                        </a>
+                      </h6>
+                    </div>
+                  </Form>
+                </Card>
+              </Col>
             </Row>
-            
           </Container>
         </div>
       </div>
